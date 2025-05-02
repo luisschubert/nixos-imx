@@ -17,9 +17,8 @@
     };
   };
 
-  outputs = inputs@{ self, ... }: inputs.functions.lib.importRepo inputs ./. (repo@{ overlays, ... }: let
-    lib = inputs.nixpkgs.lib // { fun = inputs.functions.lib; inst = inputs.installer.lib; wip = inputs.wiplib.lib; };
-    # Hardcode config attributes for nixos-installer and nix-wiplib
+  outputs = inputs@{ self, ... }: inputs.functions.lib.importRepo (inputs // {
+    # Inject config directly into inputs for nixos-installer and nix-wiplib
     config = {
       prefix = "wip"; # For nix-wiplib
       rename = {
@@ -27,10 +26,24 @@
         preface = "preface"; # For nixos-installer
       };
     };
+  }) ./. (repo@{ overlays, ... }: let
+    lib = inputs.nixpkgs.lib // { fun = inputs.functions.lib; inst = inputs.installer.lib; wip = inputs.wiplib.lib; };
   in [
     repo { lib.__internal__ = lib; }
-    (lib.inst.mkSystemsFlake { inherit inputs config; }) # Pass config explicitly
-    (lib.inst.mkSystemsFlake { inherit inputs config; buildPlatform = "x86_64-linux"; renameOutputs = key: "x64:${key}"; })
+    (lib.inst.mkSystemsFlake { inherit inputs; config = {
+      prefix = "wip";
+      rename = {
+        installer = "installer";
+        preface = "preface";
+      };
+    }; })
+    (lib.inst.mkSystemsFlake { inherit inputs; config = {
+      prefix = "wip";
+      rename = {
+        installer = "installer";
+        preface = "preface";
+      };
+    }; buildPlatform = "x86_64-linux"; renameOutputs = key: "x64:${key}"; })
     (lib.fun.forEachSystem [ "aarch64-linux" "x86_64-linux" ] (localSystem: {
       packages = lib.fun.getModifiedPackages (lib.fun.importPkgs inputs { system = localSystem; }) overlays;
       defaultPackage = self.packages.${localSystem}.all-systems;
