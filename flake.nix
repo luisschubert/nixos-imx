@@ -12,6 +12,7 @@
     installer = { url = "github:NiklasGollenstede/nixos-installer"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; };
     wiplib = { url = "github:NiklasGollenstede/nix-wiplib"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; inputs.installer.follows = "installer"; };
     #nixos-imx = { url = "github:NiklasGollenstede/nixos-imx"; inputs.nixpkgs.follows = "nixpkgs"; inputs.wiplib.follows = "wiplib"; }; # (uncomment this when reusing this file in your own repo)
+    nixos-imx = { url = "github:luisschubert/nixos-imx"; inputs.nixpkgs.follows = "nixpkgs"; inputs.wiplib.follows = "wiplib"; };
 
 }; outputs = inputs@{ self, ... }: inputs.functions.lib.importRepo inputs ./. (repo@{ overlays, ... }: let
     lib = inputs.nixpkgs.lib // { fun = inputs.functions.lib; inst = inputs.installer.lib; wip = inputs.wiplib.lib; };
