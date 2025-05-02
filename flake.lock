@@ -1,29 +1,5 @@
 {
   "nodes": {
-    "config": {
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-elz+1VaAKxE4aTOOm+5MjsAUd+H1yHQyypfvA0PAnzs=",
-        "path": "./example/defaultConfig",
-        "type": "path"
-      },
-      "original": {
-        "path": "./example/defaultConfig",
-        "type": "path"
-      }
-    },
-    "config_2": {
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-EgEBMr5JbCUXVFMInh5Wn11jlMPlRyd1IpDPO8pLzYI=",
-        "path": "./example/defaultConfig",
-        "type": "path"
-      },
-      "original": {
-        "path": "./example/defaultConfig",
-        "type": "path"
-      }
-    },
     "functions": {
       "inputs": {
         "nixpkgs": [
@@ -46,7 +22,6 @@
     },
     "installer": {
       "inputs": {
-        "config": "config",
         "functions": [
           "functions"
         ],
@@ -110,7 +85,6 @@
     },
     "wiplib": {
       "inputs": {
-        "config": "config_2",
         "functions": [
           "functions"
         ],
