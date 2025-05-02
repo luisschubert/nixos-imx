@@ -1,16 +1,5 @@
 {
   "nodes": {
-    "config": {
-      "locked": {
-        "path": "./example/defaultconfig",
-        "type": "path"
-      },
-      "original": {
-        "path": "./example/defaultconfig",
-        "type": "path"
-      },
-      "parent": []
-    },
     "functions": {
       "inputs": {
         "nixpkgs": [
@@ -28,6 +17,7 @@
       "original": {
         "owner": "NiklasGollenstede",
         "repo": "nix-functions",
+        "rev": "d4249dd208e055bfdf43a249894dabcac7ea8b24",
         "type": "github"
       }
     },
@@ -51,6 +41,7 @@
       "original": {
         "owner": "NiklasGollenstede",
         "repo": "nixos-installer",
+        "rev": "6a886a839df96ea37b3b256d5ea2fbbe549d68a8",
         "type": "github"
       }
     },
@@ -88,7 +79,6 @@
     },
     "root": {
       "inputs": {
-        "config": "config",
         "functions": "functions",
         "installer": "installer",
         "nixpkgs": "nixpkgs",
@@ -119,6 +109,7 @@
       "original": {
         "owner": "NiklasGollenstede",
         "repo": "nix-wiplib",
+        "rev": "b0587d12a6f9dab63c2023fd8ced3560a9e89d6a",
         "type": "github"
       }
     }
