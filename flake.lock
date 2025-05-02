@@ -2,11 +2,11 @@
   "nodes": {
     "config": {
       "locked": {
-        "path": "./example/defaultConfig",
+        "path": "./example/defaultconfig",
         "type": "path"
       },
       "original": {
-        "path": "./example/defaultConfig",
+        "path": "./example/defaultconfig",
         "type": "path"
       },
       "parent": []
