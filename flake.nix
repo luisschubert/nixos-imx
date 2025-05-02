@@ -5,10 +5,10 @@
 
   inputs = {
     nixpkgs = { url = "github:NixOS/nixpkgs/6da4bc6cb07cba1b8e53d139cbf1d2fb8061d967"; };
-    functions = { url = "github:NiklasGollenstede/nix-functions/d4249dd208e055bfdf43a249894dabcac7ea8b24"; inputs.nixpkgs.follows = "nixpkgs"; };
-    installer = { url = "github:NiklasGollenstede/nixos-installer/6a886a839df96ea37b3b256d5ea2fbbe549d68a8"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; };
-    wiplib = { url = "github:NiklasGollenstede/nix-wiplib/b0587d12a6f9dab63c2023fd8ced3560a9e89d6a"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; inputs.installer.follows = "installer"; };
-    nixos-imx = { url = "github:NiklasGollenstede/nixos-imx"; inputs.nixpkgs.follows = "nixpkgs"; inputs.wiplib.follows = "wiplib"; };
+    functions = { url = "github:NiklasGollenstede/nix-functions/"; inputs.nixpkgs.follows = "nixpkgs"; };
+    installer = { url = "github:NiklasGollenstede/nixos-installer"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; };
+    wiplib = { url = "github:NiklasGollenstede/nix-wiplib/"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; inputs.installer.follows = "installer"; };
+    nixos-imx = { url = "github:luisschubert/nixos-imx"; inputs.nixpkgs.follows = "nixpkgs"; inputs.wiplib.follows = "wiplib"; };
   };
 
   outputs = inputs@{ self, ... }: inputs.functions.lib.importRepo inputs ./. (repo@{ overlays, ... }: let
