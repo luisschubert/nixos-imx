@@ -8,7 +8,7 @@
     functions = { url = "github:NiklasGollenstede/nix-functions/"; inputs.nixpkgs.follows = "nixpkgs"; };
     installer = { url = "github:NiklasGollenstede/nixos-installer"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; };
     wiplib = { url = "github:NiklasGollenstede/nix-wiplib/"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; inputs.installer.follows = "installer"; };
-    nixos-imx = { url = "github:luisschubert/nixos-imx/a3b418346c86910f3a961ec65a2e9e53d0b93099"; inputs.nixpkgs.follows = "nixpkgs"; inputs.wiplib.follows = "wiplib"; };
+    # nixos-imx = { url = "github:luisschubert/nixos-imx/f9704c92c66d55c1d66989fae47a42a66bf52b2c"; inputs.nixpkgs.follows = "nixpkgs"; inputs.wiplib.follows = "wiplib"; };
   };
 
   outputs = inputs@{ self, ... }: inputs.functions.lib.importRepo inputs ./. (repo@{ overlays, ... }: let
