@@ -9,6 +9,7 @@
     installer = { url = "github:NiklasGollenstede/nixos-installer"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; };
     wiplib = { url = "github:NiklasGollenstede/nix-wiplib/"; inputs.nixpkgs.follows = "nixpkgs"; inputs.functions.follows = "functions"; inputs.installer.follows = "installer"; };
     # nixos-imx = { url = "github:luisschubert/nixos-imx/f9704c92c66d55c1d66989fae47a42a66bf52b2c"; inputs.nixpkgs.follows = "nixpkgs"; inputs.wiplib.follows = "wiplib"; };
+    config = { url = "path:./example/defaultConfig"; };
   };
 
   outputs = inputs@{ self, ... }: inputs.functions.lib.importRepo inputs ./. (repo@{ overlays, ... }: let

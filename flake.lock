@@ -1,5 +1,16 @@
 {
   "nodes": {
+    "config": {
+      "locked": {
+        "path": "./example/defaultConfig",
+        "type": "path"
+      },
+      "original": {
+        "path": "./example/defaultConfig",
+        "type": "path"
+      },
+      "parent": []
+    },
     "functions": {
       "inputs": {
         "nixpkgs": [
@@ -77,6 +88,7 @@
     },
     "root": {
       "inputs": {
+        "config": "config",
         "functions": "functions",
         "installer": "installer",
         "nixpkgs": "nixpkgs",
